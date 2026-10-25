@@ -1,0 +1,8 @@
+{
+  "name": "onsite",
+  "description": "Plan, build and deploy a fullstack app (frontend, REST API, Postgres, Docker) to a Linux server fast",
+  "version": "0.1.0",
+  "author": {
+    "name": "Justus"
+  }
+}

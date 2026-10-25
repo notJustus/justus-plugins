@@ -1,0 +1,14 @@
+{
+  "name": "justus-plugins",
+  "description": "Justus' Claude Code plugins",
+  "owner": {
+    "name": "Justus"
+  },
+  "plugins": [
+    {
+      "name": "onsite",
+      "description": "Plan, build and deploy a fullstack app (frontend, REST API, Postgres, Docker) to a Linux server fast",
+      "source": "./plugins/onsite"
+    }
+  ]
+}
