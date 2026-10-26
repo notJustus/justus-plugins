@@ -8,16 +8,17 @@ Wird vom Skill `plan` als `.spec/planung.md` gefüllt. Annahmen sind mit **[Anna
 
 | Bereich | Entscheidung |
 |---|---|
-| Backend | Kotlin + Spring Boot |
+| Backend | Kotlin + Spring Boot (Details: Skill `backend`) |
 | Datenbank | PostgreSQL (relational) |
-| Schema | Flyway-Migrationen (`db/migration/V1__....sql`), Hibernate `ddl-auto: validate` |
 | API-Stil | REST mit JSON |
-| Repo | Monorepo: `backend/`, `frontend/`, `docker-compose.yml`, `.env.example`, `README.md` |
+| Sprache im Code | Englisch: Klassen, Variablen, Tabellen, Spalten, Endpunkte, JSON-Felder, Commits, PRs. Nur sichtbare Texte in der UI auf Deutsch |
+| Frontend | Vite + React oder Next.js, Entscheidung in Abschnitt 5 (Details: Skill `frontend`) |
+| Repo | Monorepo: `backend/`, `frontend/`, `docker-compose.yml`, `docker-compose.local.yml`, `.env.example`, `README.md` |
 | Git | Ein Feature-Branch pro Schritt aus Abschnitt 7 (z.B. `feature/backend`, `feature/frontend`). Claude committet, pusht und öffnet den PR (`gh pr create`). Ich reviewe und merge |
 | Container | Docker + Docker Compose |
 | Server | Linux-Server, wird gestellt |
 | HTTPS (falls nötig) | Let's Encrypt per certbot (`--standalone` + Hooks), Nginx terminiert TLS |
-| Secrets | `.env` nur auf dem Server, im Repo nur `.env.example` |
+| Secrets | `.env` nie committen (lokal und auf dem Server je eine), im Repo nur `.env.example` |
 | Code auf den Server | privates GitHub-Repo, auf dem Server per Deploy Key (read-only) geklont |
 
 ---
@@ -72,8 +73,6 @@ flowchart LR
     D[Domain / Entity] -.-> S
 ```
 
-Packages nach Schichten: `web/` (Controller, DTOs), `service/`, `repository/`, `domain/` (Entities)
-
 ## 5. Frontend
 
 **Entscheidung:** Reicht Client-Side-Rendering für alle Seiten?
@@ -127,8 +126,8 @@ flowchart LR
 |---|---|---|
 | 1 | Planung | `planung.md` reviewt |
 | 2 | Server vorbereiten (parallel zu 3, unabhängig vom Code): SSH, Docker, Firewall, Deploy Key, ggf. A-Record | `docker --version` auf dem Server, `dig` zeigt die IP |
-| 3 | Backend + DB lokal | jeder Endpunkt antwortet per `curl` |
-| 4 | Frontend lokal, Dev-Proxy `/api` → `localhost:8080` (Vite `server.proxy`, Next.js `rewrites`) | Seiten zeigen echte Daten, Network-Tab ohne Fehler |
+| 3 | Backend + DB lokal (Skill `backend`) | jeder Endpunkt antwortet per `curl` |
+| 4 | Frontend lokal (Skill `frontend`) | Seiten zeigen echte Daten, Network-Tab ohne Fehler |
 | 5 | Compose lokal | alles über `http://localhost` |
 | 6 | Deployment | App unter IP / Domain erreichbar |
 | 7 | HTTPS (falls nötig) | `https://` mit Schloss, `http://` leitet um |
