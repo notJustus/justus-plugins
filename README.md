@@ -10,6 +10,9 @@ Plan, build and deploy a small fullstack app (frontend, REST API, Postgres, Dock
 |---|---|
 | `/onsite:setup` | Set up a fresh Mac: check tools, install what is missing, connect GitHub via SSH |
 | `/onsite:plan` | Turn a task description into `.spec/planung.md` before writing code |
+| `/onsite:backend` | Build the Kotlin + Spring Boot backend from the plan and run it locally |
+| `/onsite:frontend` | Build the Vite + React or Next.js frontend and connect it to the backend |
+| `/onsite:cheatsheet` | Commands for local dev, Compose, server, DNS, HTTPS, debugging ([read on GitHub](plugins/onsite/skills/cheatsheet/cheatsheet.md)) |
 
 ## Install on a new machine
 
